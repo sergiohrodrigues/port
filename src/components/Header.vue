@@ -1,7 +1,7 @@
 <template>
   <header class="cabecalho">
 
-    <section class="bg-black flex items-center justify-between p-3 md:justify-around containerMenu" aria-label="Global">
+    <section class="flex items-center justify-between p-3 md:justify-around containerMenu" aria-label="Global">
       <div class="botaoMenu" @click="menuMobile = !menuMobile">
         <button v-if="!menuMobile" type="button"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
@@ -24,7 +24,7 @@
 
         <a href="#sobre" class="menuLink text-base font-semibold leading-6 text-white md:text-base"
           @click="menuMobile = false">Sobre mim</a>
-        <a href="#habilidades" class="menuLink text-base font-semibold leading-6 text-white md:text-base"
+        <a href="#stacks" class="menuLink text-base font-semibold leading-6 text-white md:text-base"
           @click="menuMobile = false">Stacks</a>
         <a href="#projetos" class="menuLink text-base font-semibold leading-6 text-white md:text-base"
           @click="menuMobile = false">Projetos</a>
@@ -77,6 +77,7 @@ export default {
   bottom: 0;
   width: 100vw;
   z-index: 10000;
+  background-color: darkgray;
 }
 
 .menuLateral {
@@ -87,7 +88,6 @@ export default {
   gap: 2rem;
   padding-right: 2rem;
   width: 70vw;
-  background-color: darkgray;
   position: absolute;
   bottom: 54px;
   z-index: 9000;
@@ -95,6 +95,7 @@ export default {
   height: calc(48vh - 54px);
   transition: 0.5s;
   border-radius: 1rem 0 0 0;
+  background-color: var(--blue);
 }
 
 .menuLateral-active {
@@ -105,11 +106,11 @@ export default {
 
   .cabecalho {
     position: fixed;
+    z-index: 10000;
   }
 
   .containerMenu {
     position: static;
-    top: 0;
     width: auto;
     padding: 0;
   }
@@ -123,9 +124,11 @@ export default {
     flex-direction: row;
     justify-content: end;
     position: static;
-    height: auto;
+    height: 50px;
+    background-color: var(--black);
     padding: 1rem 5rem;
-    right: 0;
+    border-radius: 0;
+    border-bottom: 1px solid var(--gray);
   }
 
   .menuLink {
@@ -160,7 +163,7 @@ export default {
     position: absolute;
     width: 0%;
     height: 2px;
-    background-color: blue;
+    background-color: var(--blue);
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
     transition-duration: 400ms;
     transition-property: width, left;

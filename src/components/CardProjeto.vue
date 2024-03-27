@@ -30,7 +30,8 @@ const props = defineProps<{
 <style scoped>
 .card {
     position: relative;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: 200px;
     background-color: #f2f2f2;
     border-radius: 10px;
@@ -49,11 +50,6 @@ const props = defineProps<{
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-}
-
 .card__content {
     position: absolute;
     top: 0;
@@ -66,10 +62,6 @@ const props = defineProps<{
     transform: rotateX(-90deg);
     transform-origin: bottom;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.card:hover .card__content {
-    transform: rotateX(0deg);
 }
 
 .card__title {
@@ -88,5 +80,14 @@ const props = defineProps<{
     font-size: 14px;
     color: #777;
     line-height: 1.4;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card:hover .card__content {
+    transform: rotateX(0deg);
 }
 </style>

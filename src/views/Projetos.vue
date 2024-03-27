@@ -1,7 +1,9 @@
 <template>
-    <section style="display: flex; flex-wrap: wrap; gap: 1rem;">
-        <h2 style="font-size: 2rem;">Projetos</h2><br>
-        <CardProjeto v-for="projeto in projetos" :projeto="projeto" :key="projeto.nome" />
+    <section class="projetos">
+        <h2 class="projetos__title">Projetos</h2>
+        <section class="projetos__cards">
+            <CardProjeto v-for="projeto in projetos" :projeto="projeto" :key="projeto.nome" />
+        </section>
     </section>
 </template>
 
@@ -30,3 +32,28 @@ fetch('https://api.github.com/users/sergiohrodrigues/repos')
         projetos.value = []
     })
 </script>
+
+<style scoped>
+.projetos {
+    /* style="display: flex; flex-wrap: wrap; gap: 1rem;" */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 4rem;
+}
+
+.projetos__title {
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.projetos__cards {
+    /* style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem;" */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+</style>
