@@ -2,15 +2,22 @@
     <section class="projetos">
         <h2 class="projetos__title">Projetos</h2>
         <section class="projetos__cards">
-            <CardProjeto v-for="projeto in projetos" :projeto="projeto" :key="projeto.nome" />
+            <CardProjeto v-for="projeto in projetos" :projeto="projeto" :key="projeto.nome" @click="abrirModal"/>
         </section>
+        <ModalProjeto v-model:modalAberto="modalAberto"/>
     </section>
 </template>
 
 <script setup lang="ts">
 import CardProjeto from '@/components/CardProjeto.vue';
+import ModalProjeto from '@/components/ModalProjeto.vue';
 import type IProjeto from '@/interfaces/IProjeto'
 import { ref, type Ref } from 'vue';
+const modalAberto = ref(false);
+
+function abrirModal(){
+    modalAberto.value = true
+}
 
 const projetos: Ref<IProjeto[]> = ref([]);
 

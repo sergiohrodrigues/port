@@ -20,11 +20,12 @@
 
 <script setup lang="ts">
 import type IProjeto from '@/interfaces/IProjeto';
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
 
 const props = defineProps<{
     projeto: IProjeto
 }>()
+
 </script>
 
 <style scoped>
@@ -89,5 +90,11 @@ const props = defineProps<{
 
 .card:hover .card__content {
     transform: rotateX(0deg);
+}
+
+@media screen and (min-width: 1024px){
+    .card:hover{
+        cursor: pointer;
+    }
 }
 </style>
