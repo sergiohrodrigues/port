@@ -76,7 +76,7 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  z-index: 10000;
+  z-index: 99;
   background-color: darkgray;
 }
 
@@ -90,7 +90,7 @@ export default {
   width: 70vw;
   position: absolute;
   bottom: 54px;
-  z-index: 9000;
+  z-index: 100;
   right: -600px;
   height: calc(48vh - 54px);
   transition: 0.5s;
@@ -106,7 +106,7 @@ export default {
 
   .cabecalho {
     position: fixed;
-    z-index: 10000;
+    z-index: 10;
   }
 
   .containerMenu {

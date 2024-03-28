@@ -15,7 +15,7 @@
                 <button class="button">
                     <span class="button_lg">
                         <span class="button_sl"></span>
-                        <span class="button_text">Baixar Curriculo</span>
+                        <span class="button_text" @click="downloadPDF">Baixar Curriculo</span>
                     </span>
                 </button>
             </div>
@@ -26,6 +26,25 @@
 
 <script setup lang="ts">
 import RedesSociais from '@/components/RedesSociais.vue';
+
+function downloadPDF() {
+    // URL do seu arquivo PDF
+    const url = '../../public/projetos/sergio_curriculo.pdf';
+
+    // Cria um link temporário
+    const link = document.createElement('a');
+    link.href = url;
+
+    // Adiciona o atributo 'download' para forçar o download
+    link.download = 'sergio_curriculo.pdf';
+
+    // Adiciona o link ao DOM e simula o clique nele
+    document.body.appendChild(link);
+    link.click();
+
+    // Remove o link do DOM
+    document.body.removeChild(link);
+}
 
 </script>
 
