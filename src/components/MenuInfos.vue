@@ -72,7 +72,7 @@ function downloadPDF() {
     background-color: var(--black);
     border-radius: 1rem;
     width: 100%;
-    min-width: 330px;
+    max-width: 400px;
     height: 58vh;
     margin: 0 auto;
     text-align: center;
@@ -230,7 +230,7 @@ function downloadPDF() {
     background-color: #fff;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     .principal__sobre {
         width: 30%;
     }

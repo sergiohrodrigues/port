@@ -21,11 +21,11 @@
 
 <script setup lang="ts">
 import BotaoFixadoInferiorDaPagina from '@/components/BotaoFixadoInferiorDaPagina.vue';
-import HeaderTeste from '@/components/HeaderTeste.vue';
 import Sobre from './Sobre.vue';
 import Habilidades from './Habilidades.vue';
 import Projetos from './Projetos.vue';
 import MenuInfos from '@/components/MenuInfos.vue';
+import HeaderTeste from '@/components/HeaderTeste.vue';
 
 </script>
 
@@ -47,7 +47,7 @@ import MenuInfos from '@/components/MenuInfos.vue';
   padding: 0 1.5rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .principal {
     flex-direction: row;
   }
