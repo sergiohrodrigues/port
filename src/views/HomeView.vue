@@ -1,5 +1,5 @@
 <template>
-  <Header />
+  <HeaderTeste />
 
   <main class="principal" style="background-color: var(--darkblue);">
 
@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import BotaoFixadoInferiorDaPagina from '@/components/BotaoFixadoInferiorDaPagina.vue';
-import Header from '@/components/Header.vue';
+import HeaderTeste from '@/components/HeaderTeste.vue';
 import Sobre from './Sobre.vue';
 import Habilidades from './Habilidades.vue';
 import Projetos from './Projetos.vue';
