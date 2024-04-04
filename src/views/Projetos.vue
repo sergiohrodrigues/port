@@ -25,7 +25,7 @@ const projetos = [
         nome: "SearchFlix",
         deploy: "https://search-flix.vercel.app/",
         descricao: "Esse é um projeto de filmes, que foi usado a API The movie Database, e nele voce consegue ver os filmes populares, adicionar filme em minha lista, remover, os dados ficam salvos no LocalStorage, da para ver os detalhes dos filme clicando nele, como, resumo, trailler, etc.",
-        linguagens: "Reactjs",
+        linguagens: "Reactjs, API The Movie Database",
         repositorio: "https://github.com/sergiohrodrigues/search-flix"
     }
 ] as IProjeto[]

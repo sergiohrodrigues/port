@@ -29,7 +29,7 @@ import RedesSociais from '@/components/RedesSociais.vue';
 
 function downloadPDF() {
     // URL do seu arquivo PDF
-    const url = '../../public/projetos/sergio_curriculo.pdf';
+    const url = 'https://drive.usercontent.google.com/u/1/uc?id=1SN5FRaCYO7PvI1RskQwpvHSQSi1ZlmiK&export=download';
 
     // Cria um link temporário
     const link = document.createElement('a');
