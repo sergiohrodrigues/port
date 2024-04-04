@@ -1,136 +1,73 @@
 <template>
-  <header class="cabecalho">
-
-    <section class="flex items-center justify-between p-3 md:justify-around containerMenu" aria-label="Global">
-      <div class="botaoMenu" @click="menuMobile = !menuMobile">
-        <button v-if="!menuMobile" type="button"
-          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white">
+  <header class="">
+    <nav
+      class="fixed bottom-0 w-screen flex items-center justify-center p-4 lg:px-8 bg-slate-500 z-10 md:top-0 md:h-12 md:bg-black"
+      style="border-bottom: 1px solid white;" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+        </a>
+      </div>
+      <div class="flex md:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+          @click="mobileMenuOpen = true">
           <span class="sr-only">Open main menu</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
-
-        <button v-else type="button" class="-m-2.5 rounded-md p-2.5 text-white">
-          <span class="sr-only">Close menu</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <Bars3Icon class="h-8 w-8" aria-hidden="true" />
         </button>
       </div>
-      <nav :class="abrirMenu" class="menuLateral">
-
-        <a href="#sobre" class="menuLink text-base font-semibold leading-6 text-white md:text-base"
-          @click="menuMobile = false">Sobre mim</a>
-        <a href="#stacks" class="menuLink text-base font-semibold leading-6 text-white md:text-base"
-          @click="menuMobile = false">Stacks</a>
-        <a href="#projetos" class="menuLink text-base font-semibold leading-6 text-white md:text-base"
-          @click="menuMobile = false">Projetos</a>
-        <a href="#contato" class="menuLink text-sm font-semibold leading-6 text-white md:text-base md:hidden"
-          @click="menuMobile = false">Contato</a>
-
-      </nav>
-    </section>
-
-
+      <PopoverGroup class="hidden md:flex md:gap-x-12">
+        <a href="#sobre" class="menuLink text-xl font-bold leading-6 text-white">Sobre mim</a>
+        <a href="#stacks" class="menuLink text-xl font-bold leading-6 text-white">Stacks</a>
+        <a href="#projetos" class="menuLink text-xl font-bold leading-6 text-white">Projetos</a>
+      </PopoverGroup>
+    </nav>
+    <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
+      <div class="fixed inset-0 z-10" />
+      <DialogPanel
+        class="fixed h-2/4 bottom-0 right-0 z-30 w-4/6 bg-slate-400 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10" style="border-radius: 1rem 0 0 0;">
+        <div class="fixed bottom-0 right-0 w-screen p-4 flex items-center justify-center bg-slate-500">
+          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+            @click="mobileMenuOpen = false">
+            <span class="sr-only">Close menu</span>
+            <XMarkIcon class="h-8 w-8" aria-hidden="true" />
+          </button>
+        </div>
+        <div class="mt-6 h-full flex flex-col justify-end items-end">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <div style="display: flex; flex-direction: column; gap: 2rem; padding: 10rem 2rem;">
+                <a href="#sobre" class="text-xl font-bold leading-6 text-white"
+                  @click="mobileMenuOpen = false">Sobre mim</a>
+                <a href="#stacks" class="text-xl font-bold leading-6 text-white"
+                  @click="mobileMenuOpen = false">Stacks</a>
+                <a href="#projetos" class="text-xl font-bold leading-6 text-white"
+                  @click="mobileMenuOpen = false">Projetos</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </DialogPanel>
+    </Dialog>
   </header>
 </template>
 
-<script lang="ts">
-export default {
-  data() {
-    return {
-      menuMobile: false
-    }
-  },
-  computed: {
-    abrirMenu() {
-      return this.menuMobile ? 'menuLateral-active' : 'menuLateral'
-    },
-    classBotaoMenuMobile() {
-      return '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 text-lg'
-    },
-    redesSociais() {
-      return [
-        { link: "https://www.linkedin.com/in/sergioh-rodrigues/", icon: "fa-brands fa-linkedin text-white text-3xl hover:text-blue-600", click: this.menuMobile = false },
-        { link: "https://github.com/sergiohrodrigues", icon: "fa-brands fa-github text-white text-3xl hover:text-gray-600", click: this.menuMobile = false },
-        {
-          link: "https://api.whatsapp.com/send?phone=5543998343648&text=Olá Sergio, ", icon: "fa-brands fa-whatsapp text-white text-3xl hover:text-green-600", click: this.menuMobile = false,
-        },
-      ];
-    },
-  }
-}
+<script setup lang="ts">
+import { ref } from 'vue'
+import {
+  Dialog,
+  DialogPanel,
+  PopoverGroup,
+} from '@headlessui/vue'
+import {
+  Bars3Icon,
+  XMarkIcon,
+} from '@heroicons/vue/24/outline';
+
+const mobileMenuOpen = ref(false)
 </script>
 
-<style scoped>
-.cabecalho {
-  position: relative;
-}
-
-.containerMenu {
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  z-index: 99;
-  background-color: darkgray;
-}
-
-.menuLateral {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  gap: 2rem;
-  padding-right: 2rem;
-  width: 70vw;
-  position: absolute;
-  bottom: 54px;
-  z-index: 100;
-  right: -600px;
-  height: calc(48vh - 54px);
-  transition: 0.5s;
-  border-radius: 1rem 0 0 0;
-  background-color: var(--blue);
-}
-
-.menuLateral-active {
-  right: 0;
-}
-
+<style scode>
 @media screen and (min-width: 768px) {
-
-  .cabecalho {
-    position: fixed;
-    z-index: 10;
-  }
-
-  .containerMenu {
-    position: static;
-    width: auto;
-    padding: 0;
-  }
-
-  .botaoMenu {
-    display: none;
-  }
-
-  .menuLateral {
-    width: 100vw;
-    flex-direction: row;
-    justify-content: end;
-    position: static;
-    height: 50px;
-    background-color: var(--black);
-    padding: 1rem 5rem;
-    border-radius: 0;
-    border-bottom: 1px solid var(--gray);
-  }
-
   .menuLink {
     font-size: 1.3rem;
     color: #e1e1e1;

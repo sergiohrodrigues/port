@@ -1,6 +1,10 @@
 <template>
-    <div class="stacks" style="font-size: 2rem; display: flex; flex-direction: column; padding-top: 5rem;">
-        <h2 class="stacks__titulo">Stacks</h2>
+    <div class="stacks">
+
+        <Titulo>
+            Stacks
+        </Titulo>
+        
         <section class="stacks__container">
 
             <div class="stacks__container-stack">
@@ -107,15 +111,16 @@
 </template>
 
 <script setup lang="ts">
+import Titulo from '@/components/Titulo.vue';
+
 </script>
 
 <style scoped>
-.stacks {}
-
-.stacks__titulo {
+.stacks{
     font-size: 2rem;
-    color: var(--white);
-    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
 }
 
 div {
@@ -146,6 +151,10 @@ div {
 }
 
 @media screen and (min-width: 768px) {
+    .stacks{
+        padding-top: 3rem;
+    }
+    
     .stacks__container-stack svg {
         width: 60px;
         height: 60px;

@@ -1,15 +1,20 @@
 <template>
     <section class="projetos">
-        <h2 class="projetos__title">Projetos</h2>
+
+        <Titulo>
+            Projetos
+        </Titulo>
+
         <section class="projetos__cards">
-            <CardProjeto v-for="projeto in projetos" :projeto="projeto" :key="projeto.nome" />
+            <CardProject v-for="projeto in projetos" :projeto="projeto" :key="projeto.nome" />
         </section>
     </section>
 </template>
 
 <script setup lang="ts">
-import CardProjeto from '@/components/CardProjeto.vue';
-import type IProjeto from '@/interfaces/IProjeto'
+import CardProject from '@/components/CardProject.vue';
+import Titulo from '@/components/Titulo.vue';
+import type IProjeto from '@/interfaces/IProjeto';
 
 const projetos = [
     {
@@ -65,13 +70,7 @@ const projetos = [
     flex-direction: column;
     flex-wrap: wrap;
     gap: 1rem;
-    padding: 4rem 0 5rem 0;
-}
-
-.projetos__title {
-    font-size: 2rem;
-    color: var(--white);
-    font-weight: bold;
+    padding-top: 2rem;
 }
 
 .projetos__cards {
@@ -79,5 +78,11 @@ const projetos = [
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 1rem;
+}
+
+@media screen and (min-width: 768px){
+    .projetos{
+        padding-top: 3rem;
+    }
 }
 </style>

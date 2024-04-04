@@ -1,5 +1,5 @@
 <template>
-  <HeaderTeste />
+  <Header />
 
   <main class="principal" style="background-color: var(--darkblue);">
 
@@ -25,7 +25,7 @@ import Sobre from './Sobre.vue';
 import Habilidades from './Habilidades.vue';
 import Projetos from './Projetos.vue';
 import MenuInfos from '@/components/MenuInfos.vue';
-import HeaderTeste from '@/components/HeaderTeste.vue';
+import Header from '@/components/Header.vue';
 
 </script>
 
@@ -44,7 +44,7 @@ import HeaderTeste from '@/components/HeaderTeste.vue';
   margin: -3rem auto 0 auto;
   background-color: var(--black);
   border-radius: 1rem;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 7rem 1.5rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -59,7 +59,7 @@ import HeaderTeste from '@/components/HeaderTeste.vue';
   .conteudo {
     margin-top: 7rem;
     width: 90%;
-    padding: 0 2rem;
+    padding: 0 2rem 4rem 2rem;
   }
 }
 </style>
