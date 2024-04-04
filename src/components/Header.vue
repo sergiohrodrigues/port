@@ -16,9 +16,9 @@
         </button>
       </div>
       <PopoverGroup class="hidden md:flex md:gap-x-12">
-        <a href="#sobre" class="menuLink text-xl font-bold leading-6 text-white">Sobre mim</a>
+        <a href="#about" class="menuLink text-xl font-bold leading-6 text-white">Sobre mim</a>
         <a href="#stacks" class="menuLink text-xl font-bold leading-6 text-white">Stacks</a>
-        <a href="#projetos" class="menuLink text-xl font-bold leading-6 text-white">Projetos</a>
+        <a href="#projects" class="menuLink text-xl font-bold leading-6 text-white">Projetos</a>
       </PopoverGroup>
     </nav>
     <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -36,11 +36,11 @@
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
               <div style="display: flex; flex-direction: column; gap: 2rem; padding: 10rem 2rem;">
-                <a href="#sobre" class="text-xl font-bold leading-6 text-white"
+                <a href="#about" class="text-xl font-bold leading-6 text-white"
                   @click="mobileMenuOpen = false">Sobre mim</a>
                 <a href="#stacks" class="text-xl font-bold leading-6 text-white"
                   @click="mobileMenuOpen = false">Stacks</a>
-                <a href="#projetos" class="text-xl font-bold leading-6 text-white"
+                <a href="#projects" class="text-xl font-bold leading-6 text-white"
                   @click="mobileMenuOpen = false">Projetos</a>
               </div>
             </div>

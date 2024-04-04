@@ -1,9 +1,9 @@
 <template>
     <section class="projetos">
 
-        <Titulo>
+        <Title>
             Projetos
-        </Titulo>
+        </Title>
 
         <section class="projetos__cards">
             <CardProject v-for="projeto in projetos" :projeto="projeto" :key="projeto.nome" />
@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import CardProject from '@/components/CardProject.vue';
-import Titulo from '@/components/Titulo.vue';
+import Title from '@/components/Title.vue';
 import type IProjeto from '@/interfaces/IProjeto';
 
 const projetos = [

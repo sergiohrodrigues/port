@@ -1,9 +1,9 @@
 <template>
     <div class="stacks">
 
-        <Titulo>
+        <Title>
             Stacks
-        </Titulo>
+        </Title>
         
         <section class="stacks__container">
 
@@ -111,7 +111,7 @@
 </template>
 
 <script setup lang="ts">
-import Titulo from '@/components/Titulo.vue';
+import Title from '@/components/Title.vue';
 
 </script>
 

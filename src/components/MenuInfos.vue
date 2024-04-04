@@ -10,7 +10,7 @@
 
                 <h2 class="infos__container-dev">Front-end Developer</h2>
 
-                <RedesSociais />
+                <SocialMedia />
 
                 <button class="button">
                     <span class="button_lg">
@@ -18,6 +18,8 @@
                         <span class="button_text" @click="downloadPDF">Baixar Curriculo</span>
                     </span>
                 </button>
+
+                <DarkMode />
             </div>
         </div>
 
@@ -25,7 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import RedesSociais from '@/components/RedesSociais.vue';
+import SocialMedia from '@/components/SocialMedia.vue';
+import DarkMode from '@/components/DarkMode.vue';
 
 function downloadPDF() {
     // URL do seu arquivo PDF
@@ -73,7 +76,7 @@ function downloadPDF() {
     border-radius: 1rem;
     width: 100%;
     max-width: 400px;
-    height: 58vh;
+    height: 70vh;
     margin: 0 auto;
     text-align: center;
     color: var(--white);

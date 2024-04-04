@@ -7,23 +7,23 @@
 
     <section class="principal__conteudo">
       <div class="conteudo">
-        <Sobre id="sobre" />
+        <About id="about" />
 
-        <Habilidades id="stacks" />
+        <Stacks id="stacks" />
 
-        <Projetos id="projetos" />
+        <Projects id="projects" />
       </div>
     </section>
   </main>
 
-  <BotaoFixadoInferiorDaPagina />
+  <ButtonToTop />
 </template>
 
 <script setup lang="ts">
-import BotaoFixadoInferiorDaPagina from '@/components/BotaoFixadoInferiorDaPagina.vue';
-import Sobre from './Sobre.vue';
-import Habilidades from './Habilidades.vue';
-import Projetos from './Projetos.vue';
+import ButtonToTop from '@/components/ButtonToTop.vue';
+import About from './About.vue';
+import Stacks from './Stacks.vue';
+import Projects from './Projects.vue';
 import MenuInfos from '@/components/MenuInfos.vue';
 import Header from '@/components/Header.vue';
 

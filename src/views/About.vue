@@ -1,9 +1,9 @@
 <template>
     <div class="sobre">
 
-        <Titulo>
+        <Title>
             Sobre mim
-        </Titulo>
+        </Title>
 
         <p class="sobre__texto">
             Olá, atualmente atuo como desenvolvedor Front-end, tenho habilidades de criar sistemas web incríveis,
@@ -20,10 +20,10 @@
 </template>
 
 <script lang="ts">
-import Titulo from '@/components/Titulo.vue';
+import Title from '@/components/Title.vue';
 
 export default {
-    components: { Titulo }
+    components: { Title }
 }
 </script>
 
