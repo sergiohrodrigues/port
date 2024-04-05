@@ -1,12 +1,12 @@
 <template>
   <Header />
 
-  <main class="principal" style="background-color: var(--darkblue);">
+  <main class="principal" :style="darkModeFundo">
 
     <MenuInfos />
 
     <section class="principal__conteudo">
-      <div class="conteudo">
+      <div class="conteudo" :style="darkModeContainer">
         <About id="about" />
 
         <Stacks id="stacks" />
@@ -26,6 +26,22 @@ import Stacks from './Stacks.vue';
 import Projects from './Projects.vue';
 import MenuInfos from '@/components/MenuInfos.vue';
 import Header from '@/components/Header.vue';
+import { usuarioStore } from '@/stores/store';
+import { computed } from 'vue';
+
+const darkMode = computed(() => usuarioStore().darkmode)
+
+const darkModeFundo = computed(() => {
+  return {
+    backgroundColor: darkMode.value ? 'var(--darkblue)' : 'var(--blue)'
+  }
+})
+
+const darkModeContainer = computed(() => {
+  return {
+    backgroundColor: darkMode.value ? 'var(--black)' : 'var(--gray)'
+  }
+})
 
 </script>
 
@@ -42,7 +58,6 @@ import Header from '@/components/Header.vue';
   flex-direction: column;
   gap: 1rem;
   margin: -3rem auto 0 auto;
-  background-color: var(--black);
   border-radius: 1rem;
   padding: 0 1.5rem 7rem 1.5rem;
 }
@@ -62,4 +77,4 @@ import Header from '@/components/Header.vue';
     padding: 0 2rem 4rem 2rem;
   }
 }
-</style>
+</style>computed,

@@ -5,7 +5,7 @@
             Sobre mim
         </Title>
 
-        <p class="sobre__texto">
+        <p class="sobre__texto" :style="{ color: darkMode ? 'var(--gray)' : 'var(--black)' }">
             Olá, atualmente atuo como desenvolvedor Front-end, tenho habilidades de criar sistemas web incríveis,
             responsivos, onde o usuário consegue acessar tanto do celular, tablet ou computador, uso os
             frameworks Reactjs e
@@ -19,18 +19,20 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import Title from '@/components/Title.vue';
+import { usuarioStore } from '@/stores/store';
+import { computed } from 'vue';
 
-export default {
-    components: { Title }
-}
+const darkMode = computed(() => usuarioStore().darkmode)
+
 </script>
 
 <style scoped>
-.sobre{
+.sobre {
     padding-top: 2rem;
 }
+
 .sobre__imagem {
     width: 300px;
     height: 300px;
@@ -39,7 +41,6 @@ export default {
 .sobre__texto {
     font-size: 1.2rem;
     text-align: justify;
-    color: var(--gray);
 }
 
 @media screen and (min-width: 768px) {
@@ -52,4 +53,4 @@ export default {
         text-align: initial;
     }
 }
-</style>
+</style>import type { computed } from 'vue';

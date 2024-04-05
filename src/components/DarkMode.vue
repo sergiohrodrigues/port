@@ -7,15 +7,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { usuarioStore } from '@/stores/store';
 
 const darkMode = ref(true);
 
-function ativarDarkMode(){
+function ativarDarkMode() {
     darkMode.value = !darkMode.value;
-    console.log(darkMode.value)
+    usuarioStore().DARK_MODE(darkMode.value)
 }
-
-console.log(darkMode.value)
 
 </script>
 

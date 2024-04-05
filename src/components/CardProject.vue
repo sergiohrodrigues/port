@@ -1,7 +1,8 @@
 <template>
     <div class="card" @click="abrirModal">
-        <img class="card__imagem" :src="`/projetos/Imagem${projeto.id}.png`" :alt="`Imagem do projeto ${props.projeto.nome}`">
-        <div class="card__content">
+        <img class="card__imagem" :src="`/projetos/Imagem${projeto.id}.png`"
+            :alt="`Imagem do projeto ${props.projeto.nome}`">
+        <div class="card__content" :style="darkModeFundo">
             <p class="card__title">{{ props.projeto.nome }}</p>
             <span class="card__stacks">{{ props.projeto.linguagens }}</span>
             <div class="card__button">
@@ -14,14 +15,15 @@
         </div>
     </div>
 
-    <ModalProjeto v-model:modalAberto="modalAberto" :projeto="props.projeto"/>
+    <ModalProjeto v-model:modalAberto="modalAberto" :projeto="props.projeto" />
 </template>
 
 <script setup lang="ts">
 import type IProjeto from '@/interfaces/IProjeto';
 import { defineProps, ref } from 'vue';
 import ModalProjeto from './ModalProjeto.vue';
-
+import { usuarioStore } from '@/stores/store';
+import { computed } from 'vue';
 const props = defineProps<{
     projeto: IProjeto
 }>()
@@ -32,6 +34,14 @@ function abrirModal() {
     modalAberto.value = true
 }
 
+const darkMode = computed(() => usuarioStore().darkmode)
+
+const darkModeFundo = computed(() => {
+    return {
+        backgroundColor: darkMode.value ? 'var(--gray)' : 'var(--blue)'
+    }
+})
+
 </script>
 
 <style scoped>
@@ -39,7 +49,6 @@ function abrirModal() {
     position: relative;
     max-width: 300px;
     height: 200px;
-    box-shadow: 0 0 0 5px #ffffff80;
 }
 
 .card__imagem {
@@ -75,7 +84,6 @@ function abrirModal() {
         justify-content: center;
         overflow: hidden;
         perspective: 1000px;
-        box-shadow: 0 0 0 5px #ffffff80;
         transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
@@ -97,7 +105,6 @@ function abrirModal() {
         height: 100%;
         padding: 20px;
         box-sizing: border-box;
-        background-color: #f2f2f2;
         transform: rotateX(-90deg);
         transform-origin: bottom;
         transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);

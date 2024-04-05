@@ -4,8 +4,8 @@
         <Title>
             Stacks
         </Title>
-        
-        <section class="stacks__container">
+
+        <section class="stacks__container" :style="darkModeTexto">
 
             <div class="stacks__container-stack">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
@@ -112,30 +112,35 @@
 
 <script setup lang="ts">
 import Title from '@/components/Title.vue';
+import { usuarioStore } from '@/stores/store';
+import { computed } from 'vue';
+
+const darkMode = computed(() => usuarioStore().darkmode)
+
+const darkModeTexto = computed(() => {
+    return {
+        color: darkMode.value ? 'var(--gray)' : 'var(--black)'
+    }
+})
 
 </script>
 
 <style scoped>
-.stacks{
+.stacks {
     font-size: 2rem;
     display: flex;
     flex-direction: column;
     padding-top: 2rem;
 }
 
-div {
-    color: var(--gray);
-    font-size: 1rem;
-}
-
 .stacks__container {
-    /* style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin: 2rem 0;" */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
     margin: 2rem 0;
     justify-content: space-between;
+    font-size: 1rem;
 }
 
 .stacks__container-stack {
@@ -151,10 +156,10 @@ div {
 }
 
 @media screen and (min-width: 768px) {
-    .stacks{
+    .stacks {
         padding-top: 3rem;
     }
-    
+
     .stacks__container-stack svg {
         width: 60px;
         height: 60px;

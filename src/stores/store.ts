@@ -5,7 +5,7 @@ interface EstadoUsuario {
     // token: string,
     // carregado: boolean,
     // subtitulo: string,
-    produtoSelecionado: boolean,
+    darkmode: boolean,
     // notificacoes: INotificacao[]
 }
 
@@ -14,7 +14,7 @@ export const usuarioStore = defineStore('usuario', {
         // token: '',
         // carregado: false,
         // subtitulo: '',
-        produtoSelecionado: false,
+        darkmode: true,
         // notificacoes: []
     }),
     actions: {
@@ -27,15 +27,15 @@ export const usuarioStore = defineStore('usuario', {
         // SUBTITULO_PAGINA(subtitulo: string) {
         //     this.subtitulo = subtitulo
         // },
-        PRODUTO_SELECIONADO(situacao: boolean) {
-            this.produtoSelecionado = situacao
+        DARK_MODE(situacao: boolean) {
+            this.darkmode = situacao
         }
         // NOTIFICAR(novaNotificacao: INotificacao, tempoEmSegundos = 5) {
 
         //     if(this.notificacoes.length < 2){
         //         novaNotificacao.id = new Date().getTime()
         //         this.notificacoes.push(novaNotificacao)
-                
+
         //         setTimeout(() => {
         //             this.notificacoes = this.notificacoes.filter(notificacao => notificacao.id != novaNotificacao.id)
         //         }, tempoEmSegundos * 1000)

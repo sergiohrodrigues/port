@@ -24,7 +24,8 @@
     <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
       <div class="fixed inset-0 z-10" />
       <DialogPanel
-        class="fixed h-2/4 bottom-0 right-0 z-30 w-4/6 bg-slate-400 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10" style="border-radius: 1rem 0 0 0;">
+        class="fixed h-2/4 bottom-0 right-0 z-30 w-4/6 bg-slate-400 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+        style="border-radius: 1rem 0 0 0;">
         <div class="fixed bottom-0 right-0 w-screen p-4 flex items-center justify-center bg-slate-500">
           <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
             @click="mobileMenuOpen = false">
@@ -36,8 +37,8 @@
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
               <div style="display: flex; flex-direction: column; gap: 2rem; padding: 10rem 2rem;">
-                <a href="#about" class="text-xl font-bold leading-6 text-white"
-                  @click="mobileMenuOpen = false">Sobre mim</a>
+                <a href="#about" class="text-xl font-bold leading-6 text-white" @click="mobileMenuOpen = false">Sobre
+                  mim</a>
                 <a href="#stacks" class="text-xl font-bold leading-6 text-white"
                   @click="mobileMenuOpen = false">Stacks</a>
                 <a href="#projects" class="text-xl font-bold leading-6 text-white"

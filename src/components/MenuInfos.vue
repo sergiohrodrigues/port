@@ -2,13 +2,13 @@
     <section class="principal__sobre">
 
         <div class="infos">
-            <div class="infos__container">
+            <div class="infos__container" :style="darkModeContainer">
 
                 <img src="../assets/perfil.png" alt="" class="infos__container-img">
 
-                <h2 class="infos__container-nome">Sergio Rodrigues</h2>
+                <h2 class="infos__container-nome" :style="darkModeTexto">Sergio Rodrigues</h2>
 
-                <h2 class="infos__container-dev">Front-end Developer</h2>
+                <h2 class="infos__container-dev" :style="darkModeTexto">Front-end Developer</h2>
 
                 <SocialMedia />
 
@@ -29,6 +29,9 @@
 <script setup lang="ts">
 import SocialMedia from '@/components/SocialMedia.vue';
 import DarkMode from '@/components/DarkMode.vue';
+import { usuarioStore } from '@/stores/store';
+import { computed } from 'vue';
+
 
 function downloadPDF() {
     // URL do seu arquivo PDF
@@ -49,6 +52,19 @@ function downloadPDF() {
     document.body.removeChild(link);
 }
 
+const darkMode = computed(() => usuarioStore().darkmode)
+
+const darkModeContainer = computed(() => {
+    return {
+        backgroundColor: darkMode.value ? 'var(--black)' : 'var(--gray)'
+    }
+})
+
+const darkModeTexto = computed(() => {
+    return {
+        color: darkMode.value ? 'var(--white)' : 'var(--black)'
+    }
+})
 </script>
 
 <style scoped>
@@ -72,7 +88,6 @@ function downloadPDF() {
     flex-direction: column;
     gap: 1rem;
     justify-content: space-evenly;
-    background-color: var(--black);
     border-radius: 1rem;
     width: 100%;
     max-width: 400px;

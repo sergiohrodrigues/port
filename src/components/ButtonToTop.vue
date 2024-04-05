@@ -1,7 +1,7 @@
 <template>
     <button @click="scrollToTop"
-        class="to-top fixed bottom-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-12 h-12 flex items-center justify-center animate-bounce"
-        v-if="!estaNoInicio">
+        class="to-top fixed bottom-4 text-white font-bold py-2 px-4 rounded-full w-12 h-12 flex items-center justify-center animate-bounce"
+        v-if="!estaNoInicio" :class="darkMode ? 'bg-blue-500 hover:bg-blue-700' : 'bg-black hover:bg-blue-700'">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path fill-rule="evenodd"
                 d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
@@ -11,12 +11,15 @@
 </template>
 
 <script lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { usuarioStore } from '@/stores/store';
+
 
 
 export default {
     setup() {
         const estaNoInicio = ref(true);
+        const darkMode = computed(() => usuarioStore().darkmode)
 
         const scrollToTop = () => {
             // Lógica para rolar de volta ao topo
@@ -44,7 +47,8 @@ export default {
 
         return {
             scrollToTop,
-            estaNoInicio
+            estaNoInicio,
+            darkMode
         }
     }
 }
