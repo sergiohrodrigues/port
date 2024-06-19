@@ -1,19 +1,21 @@
 <template>
-    <div class="card" @click="abrirModal">
-        <img class="card__imagem" :src="`/projetos/Imagem${projeto.id}.png`"
-            :alt="`Imagem do projeto ${props.projeto.nome}`">
-        <div class="card__content" :style="darkModeFundo">
-            <p class="card__title">{{ props.projeto.nome }}</p>
-            <span class="card__stacks">{{ props.projeto.linguagens }}</span>
-            <div class="card__button">
-                <button type="button"
-                    class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Mais
-                    detalhes</button>
+    <MotionGroup preset="slideVisibleBottom" :duration="300">
+        <div class="card" @click="abrirModal">
+            <img class="card__imagem" :src="`/projetos/Imagem${projeto.id}.png`"
+                :alt="`Imagem do projeto ${props.projeto.nome}`">
+            <div class="card__content" :style="darkModeFundo">
+                <p class="card__title">{{ props.projeto.nome }}</p>
+                <span class="card__stacks">{{ props.projeto.linguagens }}</span>
+                <div class="card__button">
+                    <button type="button"
+                        class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Mais
+                        detalhes</button>
+                </div>
+            </div>
+            <div>
             </div>
         </div>
-        <div>
-        </div>
-    </div>
+    </MotionGroup>
 
     <ModalProjeto v-model:modalAberto="modalAberto" :projeto="props.projeto" />
 </template>
@@ -24,6 +26,7 @@ import { defineProps, ref } from 'vue';
 import ModalProjeto from './ModalProjeto.vue';
 import { usuarioStore } from '@/stores/store';
 import { computed } from 'vue';
+
 const props = defineProps<{
     projeto: IProjeto
 }>()
